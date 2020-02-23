@@ -1,0 +1,434 @@
+%!TEX root = ../username.tex
+\chapter[Augmented Reality]{Augmented Reality: Motivation and Technology}\label{text}
+
+\section{Spatial Computing}
+Spatial computing is the digital technology that blends computer-generated contents with the real world, allowing users to interact with digital data in their physical space in real time.\footnote{Magic Leap, “What Is Spatial Computing?,” Magic Leap Creator, March 29, 2019, \url{https://creator.magicleap.com/learn/guides/design-spatial-computing}.} What defines spatial computing is the type of interactions that it affords: natural gestures in three dimensions with the physical environment as the interface. Spatial hardware and software can calculate the device's relative position in the physical world and create meaningful interactions using their understanding of the surrounding space. Spatial computing is also often known as the integration of different realities. In 1994, Paul Milgram and Fumio Kishino defined the reality-virtuality continuum as a spectrum with the physical environment on one extreme and the  virtual environment on the other (Figure \ref{realityvirtual}).\footnote{Jon Peddie, \textit{Augmented Reality: Where We Will All Live} (Cham: Springer, 2017), 1–28.} In the middle of Figure~\ref{realityvirtual}, augmented reality indicates the use of digital contents to add to (augment) the physical world, while augmented virtuality is using real-world elements to augment the virtual space. Other definitions continue to build on this understanding about the extent to which technology augments and even modifies our view of the world. The emerging technologies that use spatial computing to create realities are commonly known as \textbf{Extended Reality} (XR), where X is a variable for the different kinds of realities along the Reality-Virtuality Continuum. This term includes mediums such as \textbf{Augmented Reality}, \textbf{Mixed Reality} and \textbf{Virtual Reality}.\footnote{Alexandria Hexton, “The Revolution of Spatial Computing: Emerging Design Frontiers in VR/AR” (October 4, 2019), \url{http://signage.showprg.com/ghc19/9d29dc65-3774-41bb-9d33-6c2d1d76a575-96117-Alexandria-Heston.pdf}.}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{realityvirtual}{1.0}
+\vspace{-.2 in}
+\caption[Milgram and Kishino's Reality-Virtuality Continuum]{Milgram and Kishino's Reality-Virtuality Continuum. Source: Jon Peddie}\label{realityvirtual}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\begin{enumerate}
+	\item Augmented Reality (AR)
+	\newline
+	Augmented Reality is a technology that uses spatial computing to overlay computer-generated contents onto the physical environment. Virtual data is projected on top of the real world using mediums such as phone screens, heads-up displays, and wearable devices. An example of an augmented robot in front of a real couch is shown in Figure\ref{AR}.
+	\item Mixed Reality (MR)
+	\newline
+	Mixed Reality is an extended version of Augmented Reality. The main difference lies in the virtual contents' ability to interact with real-world elements following the laws and principles of physics. Virtual objects in MR respect the presence of other objects in the physical environment. In the example in Figure~\ref{MR}, the robot's position is behind the couch. Therefore, part of its body is hidden. MR contents also react to real objects; for instance, when the robot encounters the couch, it walks around it.
+	\item Virtual Reality (VR)
+	\newline
+	Virtual Reality is a technology that creates an immersive experience by blocking the real world and presenting an alternative reality that simulates a real environment. The key in VR is convincing users that the virtual environment is real and suspending disbelief through two channels, sound and touch. In Figure~\ref{VR}, the same robot is placed in a computer-generated 3D space. Virtual Reality is at the virtuality end of the Reality-Virtuality Continuum.
+\end{enumerate}
+\begin{figure}[!ht]\centering
+\subfigure[AR][AR]
+{\woopic{AR}{.25}\label{AR}}
+\qquad
+\subfigure[MR][MR]
+{\woopic{MR}{.25}\label{MR}}
+\qquad
+\subfigure[VR][VR]
+{\woopic{VR}{.25}\label{VR}}
+\caption{Three XR mediums. Source: Presentation by Alexandria Heston from Magic Leap at GHC 2019}\label{fig3}
+\end{figure}
+
+\section{AR Taxonomy}
+As an emerging technology, the taxonomy of augmented reality is constantly evolving to describe the ever-changing technological landscape. The standards for classification in AR are shifting with the introduction of new devices, methods of augmentation, and contents. As it is currently impossible to use a one-size-fits-all taxonomy for augmented reality, this section introduces some of the most common ways to categorize AR, by types of displays, types of devices, and types of tracking technology.
+
+\subsection{Types of Displays}
+When discussing the requirements and characteristics of an AR visual system, Tobias Höllerer and Dieter Schmalstieg suggest that ideally an AR display is capable of creating 3D augmentations that occupy real-world physical spaces.\footnote{Dieter Schmalstieg and Tobias Höllerer, “Displays,” in \textit{Augmented Reality: Principles and Practice} (Boston: Addison-Wesley, 2016).} To convince the human eye, an AR system has to conform to principles of human vision under the limitations of visual display technology. Humans have a field of vision ranging from $200^o$ to $220^o$, but the area with the highest clarity (fovea) is only from $1^o$ to $2^o$.\footnote{Schmalstieg and Höllerer.} Humans can make up for this by moving their eyes and heads, so the actual fovea can cover up to $50^o$. An AR display needs to ensure that its \textbf{field of view} and \textbf{resolution} accommodate human field of vision and range of fovea. Humans' ability to adjust to different lighting conditions through pupil dilation also means that AR lighting must be able to simulate all levels of hues and contrast and/or have agnostic contents viewable in all conditions.\footnote{Bushra Mahmood, “A Quick Guide to Designing for Augmented Reality on Mobile (Part 3),” Medium, February 3, 2019, \url{https://medium.com/@goatsandbacon/a-quick-guide-to-designing-for-augmented-reality-on-mobile-part-3-2380f253467a}.} Another important consideration in designing for the human eye is monocular and binocular depth cues. The use of one eye (monocular field of vision) provides information such as size, height, occlusions (objects hidden behind others), shadows, and linear perspective (illusion of depth which makes further objects appear smaller). Perception of depth increases with the use of two eyea (binocular field of vision). The positional disparity between the image perceived by each eye is processed by the brain to create a sense of depth. This binocular depth cue is especially important for designing contents for AR eyeware.
+
+\begin{enumerate}
+	\item See-through Displays
+
+The problem of augmented reality is how to combine the real and virtual environments into a seamless and believable world. The most intrinsic way to achieve this is to use a lens overlaid with virtual contenta to view the environment. This method of augmentation is called a \textbf{see-through display}.\footnote{Schmalstieg and Höllerer, “Displays.”} Consider camera filters in digital photography. These transparent pieces of colored glass correct white balance and filter out unwanted color while preserving the overall image. The idea of a see-through display is also to ensure the integrity of the real environment while enhancing it with other contents. Two types of see-through displays are \textbf{optical see-through display} and \textbf{video see-through display}. Optical see-through displays describe the use of an optical element for the transmission and reflection of real and virtual imagery respectively.\footnote{Schmalstieg and Höllerer.} Video see-through displays use a camera to capture images of the environment and add a computer-generated component on top. The final digitally enhanced imagery is rendered to a viewing screen.
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{hololens}{0.8}
+\vspace{-.2 in}
+\caption[Microsoft HoloLens 2]{Microsoft HoloLens 2. Source: Microsoft}\label{hololens}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{optical}{2.0}
+\vspace{-.2 in}
+\caption[Optical see-through display]{How real-world imagery is transmitted to the eye using an optical see-through display. Source: Schmalstieg and Höllerer}\label{optical}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+Figure \ref{optical} describes the mechanism of an optical see-through display. The optical combiners transmit real-world images to the human eye while simultaneously reflecting virtual imagery. Both external light and the computer-generated image travel to the eye through the same optical device, creating the illusion of an enhanced reality. Optical combiners use several technologies to achieve this effect. The most common technique in the current wearable AR market is waveguide based, used by the Microsoft Hololens (Figure \ref{hololens}) and Magic Leap One.\footnote{Microsoft, “HoloLens 2—Overview, Features, and Specs,” Microsoft, accessed December 5, 2019, \url{https://www.microsoft.com/en-us/hololens/hardware}; Magic Leap, “Magic Leap One Creator Edition,” Magic Leap, accessed December 5, 2019, \url{https://www.magicleap.com/magic-leap-one}.} Waveguide displays combine virtual images and transport both external and virtual light through a tube so that the reflection out of the other end of the tube is completely preserved. Waveguide technology is popular for near-eye optical see-through displays because it allows imaging optics and display to be moved from the eye’s field of vision to the temples or the forehead, creating a wider field of view.\footnote{Lauren Bedal, “Designing for the Human Body in XR,” Virtual Reality Pop, November 16, 2017, \url{https://virtualrealitypop.com/designing-for-the-human-body-in-xr-e9ac88931e45}.}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{video}{2.0}
+\vspace{-.2 in}
+\caption[Video see-through display]{How real-world imagery is transmitted to the eye using a video see-through display. Source: Schmalstieg and Höllerer.}\label{video}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+Handheld AR devices and some other head-mounted displays are video see-through. Video see-through displays block the real world from the users’ view; the real environment is captured by a video camera and presented to the user on a screen. In Figure~\ref{video}, the digital combiner combines the video signal of the external world and the video signal from the computer graphics system to produce augmented images that are displayed using a monitor.\footnote{Alan B. Craig, “Augmented Reality Hardware,” in \textit{Understanding Augmented Reality: Concepts and Applications} (Waltham, MA: Morgan Kaufmann, 2013).}
+	
+For both types of see-through displays, the generated virtual content can be monoscopic (single-eye content) or stereoscopic (creating illusion of depth using the same image with a slight angular difference for each eye). Mobile AR is usually monoscopic, as the content is viewed on a 2D screen. AR with head-mounted displays can be stereoscopic, where the display for each eye shows a different angle of the same scene to create a sense of depth.
+
+\item{Spatial Augmented Reality}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{lookingglass}{.9}
+\vspace{-.2 in}
+\caption[The Looking Glass]{A volumetric video recording shown on the Looking Glass. Source: Looking Glass Factory Blog}\label{lookingglass}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+Spatial AR, also known as projection-based AR, makes use of projection to display the digitally created content. The AR system projects a special kind of light onto a projection surface, which could be real-world objects; the combination of virtual and real information, in this case, takes place in the physical world.\footnote{Schmalstieg and Höllerer, “Displays.”} Holograms are an example of a spatial AR display. The Looking Glass in Figure~\ref{lookingglass} is an interactive light-field volumetric display showing a sequence of moves by a Tai Chi master. The Looking Glass optics use 45 unique views of the 3D content to create a superstereoscopic, full-color scene.\footnote{Looking Class Factory, “Introducing The Looking Glass: A New, Interactive Holographic Display,” \textit{Looking Glass Factory Blog} (blog), July 24, 2018, \url{https://blog.lookingglassfactory.com/announcements/introducing-the-looking-glass-a-new-interactive-holographic-display/}.} Head-up displays for cars (Figure~\ref{hud}) are another successful application of spatial AR.\footnote{HUDWAY, “HUDWAY Drive,” HUDWAY, accessed December 5, 2019, \url{https://hudway.co/drive}.} The system projects vital information about the car onto the inside of the windshield, allowing the driver to view this information without requiring them to take their eyes off the road.
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{hud}{.35}
+\vspace{-.2 in}
+\caption[HUDWAY Drive]{A map projected by the head-up display HUDWAY Drive through a car's windshield. Source: HUDWAY}\label{hud}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\item Non-visual AR Displays
+
+AR displays do not have to be visual. Displays that target other sensory modalities to enhance an experience with virtual stimuli are also considered augmented reality.\footnote{Schmalstieg and Höllerer, “Displays.”} Since humans perceive the environment using multiple senses, AR products should also be multimodal to cater to these senses. Currently, audio AR is the most common display, but tangible, tactile, and haptic AR have also gained traction recently as more products seek to integrate these modes into the conventional visual display.
+
+\end{enumerate}
+
+\subsection{Types of Devices}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{eyedistance}{1.1}
+\vspace{-.2 in}
+\caption[Eye Distance AR Classification]{Classification of AR displays by distance from eye to display. Source: Schmalstieg and Höllerer}\label{eyedistance}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+Augmented reality can also be classified by the type of devices. The previous section has briefly mentioned some of these devices: mobile handheld devices, head-mounted displays and heads-up displays. These devices can be broadly categorized into two classes: wearable and non-wearable devices. \textbf{Wearable devices} are usually glasses or headsets (head-mounted displays), but can also include helmets and contact lenses. \textbf{Non-wearable devices} for AR on the market today feature mobile devices, stationary devices (desktops, televisions, etc.) and projected displays (holographic displays, heads-up displays). Another way to categorize AR devices is by order of distance from the eye. Figure~\ref{eyedistance} exemplifies the ranking of the above-mentioned displays in terms of the space they occupy: head space, body space, or world space.\footnote{Schmalstieg and Höllerer.}
+
+\subsection{Types of Tracking Technology}\label{trackingtech}
+In addition to classifying AR by types of hardware (like displays and devices), augmented reality can also be differentiated by software implementation. In terms of tracking technologies, there are two main types of augmented reality: marker-based AR and markerless AR. A key requirement of AR systems is real-time computer vision to perform instantaneous tracking and registration (alignment of objects in the device coordinate system). \textbf{Marker-based AR} relies on the use of predefined signs or images that are easily detectable with image processing, pattern recognition, and other computer vision techniques.\footnote{Sanni Siltanen, \textit{Theory and Applications of Marker-Based Augmented Reality} (Espoo, Finland: VTT, 2012), 39.} In marker-based tracking, the pose and scale of real-world objects are calculated relative to the position and orientation of the markers. Figure .. provides an example of the types of markers commonly used in marker-based AR. An alternative to using artificial markers is markerless AR, which incorporates natural feature detection and other hybrid tracking methods (combining multiple techniques). Location-based AR is another branch of \textbf{markerless AR}. Markerless trackers remove the hindrance of markers and allow the AR system to make use of objects in the scene as tracking anchors. Natural feature detection is the most common method in markerless tracking. There is some overlap between marker-based AR and markerless AR when it comes to image detection. Markerless detection techniques that employ natural feature identification algorithms share some similarities with marker-based tracking algorithms. The following sections include an in-depth discussion of natural feature tracking in image detection.
+
+\section{AR Pipeline}
+A simple augmented reality system typically requires three components: a camera, a computational unit and a display. The pipeline (in Figure~\ref{ar_pipeline}) follows a process of capturing, tracking and rendering.\footnote{Siltanen, 19–20.} An AR system builds an understanding of the environment by capturing images and using mapping algorithms to generate topological maps of the physical space. The system tracks the device’s relative position in the environment by determining the six degrees of freedom (6DOF) position of the camera, also known as the pose (see Figure~\ref{6dof}). Using these positional and environmental data, developers can create virtual content that overlays and/or interacts with the physical space. These computer-generated elements are rendered to a display, which could be a see-through device or a computer screen. The following section only discusses briefly capturing and rendering, focusing instead on tracking concepts and techniques.
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{ar_pipeline.png}{.7}
+\vspace{-.2 in}
+\caption[Eye Distance AR Classification]{Simple AR pipeline. Source: Siltanen}\label{ar_pipeline}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{6dof}{.6}
+\vspace{-.2 in}
+\caption[6DOF]{Six degrees of freedom refers to the freedom of movement by an object in 3D spaces (translation and rotation about the x, y, and z axes). Source: Pinterest}\label{6dof}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\subsection{Tracking \& Pose Determination: Simultaneous Localization and Mapping}
+The first two steps in the AR pipeline, capturing and tracking, involve solving the problem of \textbf{simultaneous localization and mapping}. When a user turns on an AR device, the system has no prior (a priori) knowledge of the environment surrounding the device or its position in this environment. The AR system has to construct its internal version of the environment while at the same time estimate the device's pose in this internal map. This problem is known as simultaneous localization and mapping (SLAM). SLAM is the computational problem of building the map of the environment and simultaneously computing the device’s pose in this map.\footnote{H. Durrant-Whyte and T. Bailey, “Simultaneous Localization and Mapping: Part I,” \textit{IEEE Robotics Automation Magazine} 13, no. 2 (June 2006): 99–110.} SLAM is solved using methods of mapping, sensing and modeling. Most AR software requires some sort of initial configuration. Initial scanning of the environment enables the system to map the physical space and deduce its position before any rendering happens. The actual implementation of tracking and pose determination in SLAM is described below.
+
+Tracking is one of the most important stages in the Augmented Reality pipeline. \textbf{Tracking} refers to the dynamic capturing and measuring of the physical environment by AR systems using tracking devices and sensors.\footnote{Dieter Schmalstieg and Tobias Höllerer, “Tracking,” in \textit{Augmented Reality: Principles and Practice} (Boston: Addison-Wesley, 2016).} Tracking enables reconstruction of the real world, specifically by determining the pose of tracked objects. As discussed in Section~\ref{trackingtech}, there are two main sets of tracking algorithms: marker-based and markerless. Marker-based tracking algorithms use the pose of the marker (relative to the viewer) to deduce the position and orientation of other objects in the environment. Some markerless methods also rely on the detection of natural markers to perform immediate registration of the scene, but other techniques can also be used to register the environment's layout.
+
+The technology that enables pose determination in AR systems is \textbf{visual inertial odometry}. In computer vision and robotics, visual odometry is the process of determining the pose of the device by analyzing its camera images. Visual inertial odometry is a visual odometry system that applies camera image analysis and sensor fusion of inertial measurement units (IMU) to track acceleration and rotation. IMU sensors include the accelerometer (measures movements along the three axes) or the gyroscope (measures rotation about the three axes). These sensors enable the device to estimate the 6DOF pose of the camera. The measurement is taken using a mechanism called a proof mass. Each sensor has a proof mass which changes from a neutral position under external influences such as acceleration or rotation  This change is used to quantify the movement or the rotation made by the camera.\footnote{Steve Aukstakalnis, “Sensors for Tracking Position, Orientation, And Motion,” in \textit{Practical Augmented Reality: A Guide to the Technologies, Applications, and Human Factors for AR and VR} (Boston: Addison-Wesley Professional, 2016).} This information is used in conjunction with computer vision analysis of images captured by the device’s camera to estimate its relative pose. Platforms like ARCore align the pose of the virtual camera and the device's camera to render virtual elements to their correct positions. The following section includes an in-depth discussion of marker detection algorithms and pose calculation based on these techniques.
+
+\section{AR Tracking System}
+\subsection{Marker Detection}
+Every visual AR system requires at least one camera. Images captured by the camera(s) undergo a process of marker/feature detection to extract the pose of the camera. The process of image formation (representing a 3D scene on a 2D image) requires switching from the world coordinate system to the image coordinate system, or in other words converting from a physical space to a flat image space. Computer graphics use the pinhole camera model to perform this translation. A pinhole camera is a box that has a hole on one side that only takes in a single ray of light, which is captured by a film placed on the other side of the box. The pinhole camera model is the ideal model for quickly calculating the 2D projection of a 3D object. However, digital cameras cannot fully simulate the pinhole model because of constraints with focal length, depth of field and field of view. Therefore, image formation by conventional cameras requires additional considerations.
+
+The fluid nature of augmented reality demands AR systems to be able to seamlessly switch between world space and image space, which means rapid mapping of world coordinates to image coordinates and vice versa. This requirement is true for both marker-based and markerless systems. In marker-based tracking, markers are objects or images that allow the AR system to quickly deduce the positions of the camera and other objects in the scene relative to the markers. Marker detection provides the image coordinates of the marker, which are then mapped back to their world coordinates (actual position in the physical world). By acquiring the marker’s position in both image and world coordinates, the system can then calculate the camera pose, which is applied to other objects in the image to find their positions in the real world. The matrix transformation $M$ that maps the world coordinates of a point to its image coordinates is called the \textbf{perspective projection} and is defined in Definition~\ref{perspectiveprojection}.\footnote{Dieter Schmalstieg and Tobias Höllerer, “Computer Vision for Augmented Reality,” in \textit{Augmented Reality: Principles and Practice} (Boston: Addison-Wesley, 2016)}
+
+\begin{defn}[Perspective projection]\label{perspectiveprojection}
+\begin{equation}
+M = K [R | t]
+\end{equation} \end{defn}
+
+Matrix $M$ is the result of the multiplication of the camera calibration matrix $K$ and the concatenation of rotation matrix $R$ and translation vector $t$. Matrix $K$ contains information about the camera's focal length and other offsets that affect its image formation. Rotation matrix $R$ and translation vector $t$ describe the orientation and position of the camera respectively. The image coordinates $x$ of an arbitrary point with world coordinates $X$ is calculated by\footnote{Siltanen, \textit{Theory and Applications of Marker-Based Augmented Reality}, 49.}
+\begin{equation}\label{mapworldimage}
+x = MX
+\end{equation}
+From Equation~\ref{perspectiveprojection}, it is clear that the position of the projected image of a point depends on both the internal geometric properties of a camera and its external positioning and orientation. Assuming that matrix $K$ is constant for each camera, the perspective projection $M$ needs to be updated every single frame to account for any external changes to the camera's pose. With Equation~\ref{mapworldimage}, $M$ can easily be calculated when world coordinates $X$ and image coordinates $x$ are known. In marker-based systems, finding image coordinates requires the use of marker detection.
+
+\subsubsection{Artificial Marker Detection}
+
+Markers are essential for tracking because there is not enough information to deduce scale and pose at the beginning. Many AR systems depend on the use of markers to perform SLAM. \textbf{Artificial markers} are the most efficient and inexpensive solution to pose estimation. A marker is a unique image that is easily detectable using computer vision and image processing techniques. Markers are often black and white because detection methods recognize differences in brightness better than differences in color, and black and white images provide the best contrast in brightness.\footnote{Siltanen, 39.} After the marker is detected, only four points are necessary for calculating the pose of the camera relative to the marker. The four-point rule is the reason why most markers, including QR codes, are in the shape of a square.
+
+The AR marker system pipeline (Figure~\ref{markerbased}) has four main stages:
+\begin{enumerate}
+	\item Capturing the image
+	\item Tracking
+	\begin{enumerate}
+		\item Detecting the marker
+		\item Calculating the pose of the camera
+	\end{enumerate}
+	\item Rendering
+\end{enumerate}
+
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{markerbased.png}{0.7}
+\vspace{-.2 in}
+\caption[Marker-based system pipeline]{Marker-based system pipeline. Source: Schmalstieg and Höllerer}\label{markerbased}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+After the system has successfully acquired an image from the camera feed, the processing function applies a threshold operation and performs edge detection and quadrilateral fitting on the resulting binary image.\footnote{Siltanen, 41–43.} Thresholded images only have two colors, black and white, separating the background from the objects. Each object is a closed contour. Scanline examination can be performed to detect the quadrilateral marker's edges; however to optimize performance, quadrilateral fitting is performed to check if an object is the marker. Figure \ref{quadrilateralfitting} demonstrates the process of searching for furthest points from edges and diagonals to detect the square. The fitting algorithm first picks an arbitrary point $a$ on the contour, then traces the entire contour to find a point with the greatest distance to $a$ (labeled $p_1$). $p_1$ becomes the first corner of the quadrilateral. Next, the centroid $m$ of the contour is calculated. It is clear that two of the remaining three corners must be on opposite sides of the diagonal through $p_1$ and $m$ and are the furthest points from the diagonal from each side. These two corners are denoted as $p_2$ and $p_3$. Finally, the half plane formed by the line through $p_2$ and $p_3$ that does not contain $p_1$ has to contain $p_4$, which also turns out to be the furthest point from the $p_2$ and $p_3$ diagonal. This method of finding the furthest point from each edge is repeated to ensure that no new corners exist.
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{quadrilateralfitting}{1.3}
+\vspace{-.2 in}
+\caption{Quadrilateral fitting. Source: Schmalstieg and Höllerer}\label{quadrilateralfitting}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+After finding the image coordinates of the four corner points, the system can now calculate linear transformation matrix $M$. Assume the world coordinates of these points are $(0, 0, 0)$, $(1, 0, 0)$, $(1, 1, 0)$, and $(0, 1, 0)$. Finding the matrix is to find the relationship between these coordinates and the image coordinates gained from marker detection. To solve the relationship, AR systems commonly use \textbf{direct linear transformation} (Definition~\ref{dlt}), a method used to solve the linear transformation $A$ from known vectors $x_k$ and $y_k$.\footnote{Siltanen, 52; Schmalstieg and Höllerer, “Computer Vision for Augmented Reality.”}
+
+\begin{defn}[Direct linear transformation]\label{dlt}
+\begin{equation}
+x_k \propto Ay_k \text{ for } k = 1,...,N
+\end{equation} \end{defn}
+$\propto$ denotes equality for an unknown scalar multiplication. To solve for $M$, replace $x_k$ and $y_k$ with the known image and world coordinates of the marker's corners. Recall from Equation~\ref{perspectiveprojection} that $M$ is the matrix product of the calibration matrix $K$ and the pose matrix $[R|t]$. Since $K$ is constant, the pose matrix, which provides the rotation and translation of the camera, can be recovered from $M$. Since point correspondence can be imperfect, further iterative error minimization is performed to refine the pose.\footnote{Schmalstieg and Höllerer, “Computer Vision for Augmented Reality.”}
+
+\subsubsection{Natural Feature Detection}
+Using a black and white square marker is efficient but its obstructive behavior is not always desirable. In terms of enhancing immersion, AR systems can be more intuitive if pose estimation can be performed on natural markers, markers that are part of the physical environment. One approach is to use \textbf{natural feature detection}. Natural feature tracking relies on sparse matching, the problem of finding the correspondences between a number of interest points in 2D images and their real 3D locations. In tracking by natural feature detection, the camera pose is recalculated for every frame, meaning that in every single frame interest points are repeatedly detected and matched.\footnote{Schmalstieg and Höllerer.} This behavior means that occlusions (accidentally covering the camera, extreme changes in lighting) in previous frames do not affect tracking performance in later frames. Another advantage of interest point tracking is compactness since tracking models only have to match a select number of points and require no memory to store information from prior frames.
+
+Figure~\ref{naturalfeature} breaks down the steps in the tracking phase for markerless AR systems using natural feature detection.
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{natural_feature_pipeline}{1.0}
+\vspace{-.2 in}
+\caption[Natural feature tracking pipeline]{Natural feature tracking pipeline. Source: Schmalstieg and Höllerer}\label{naturalfeature}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+First the system detects interest points in the image from the camera feed and creates a descriptor to represent each detected point. These descriptors are matched with predefined descriptors to determine if the points they describe are part of the target images. Lastly, the camera pose is estimated using the Perspective-n-Point algorithm.
+
+An interest point (also known as feature point or key point) is a clearly defined area in an image that is visually distinct.\footnote{Schmalstieg and Höllerer; Siltanen, \textit{Theory and Applications of Marker-Based Augmented Reality}, 94.} Interest points are well textured and exhibit considerable changes in intensity compared to their surroundings. Interest point selection algorithms must ensure constant performance across different lighting conditions and from various perspectives, or in other words, the algorithms must be able to select the same interest points every time regardless of external variables. Different methods can be used to select different kinds of features. Special interest points include edges, corners, blobs, and patches.\footnote{Siltanen, \textit{Theory and Applications of Marker-Based Augmented Reality}, 96.} The following discussion considers two corner detection algorithms:  Harris detector and Features from Accelerated Segment Test (FAST).
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{harris_corner}{0.35}
+\vspace{-.2 in}
+\caption[Harris corner detector]{Changes in intensity in Harris corner detector. Source: Robert Collins, Penn State}\label{harris}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+Harris detector recognizes corners by analyzing changes in intensity. Figure~\ref{harris} shows how autocorrelation can be used to detect interest points. This algorithm detects two types of interest points: corners and edges. Consider the pixel marked by the pink window. Let $I(a, b)$ be the function for measuring the intensity of pixel $(x,y)$. In the first case, because the pixel's intensity does not change when shifting the pink window in any direction, the bounded region is therefore flat and does not contain an interest point. In the second case, when the window contains an edge, moving the window along the edge's direction does not yield different intensities. In the last case, however, moving the window in any direction would produce considerable changes in intensity. The sum of squared differences $E(u, v)$ of an image patch $(x, y)$ in window $W$ when shifting $u$ units in the $x$-axis and $v$ units in the $y$-axis is described by:
+\begin{equation}\label{intensitychange}
+E(u,v) = \sum\limits_{(x, y) \in W} [I(x + u, y + v) - I(x, y)]^2
+\end{equation}
+By calculating the sum of squared differences, the algorithm compares two patches of the image and assigns a dissimilarity score; the higher the score, the more dissimilar the two patches. Threshold values are specified for edges, corners, and flat regions. The values of $E(u,v)$ are large for corner points and approach $0$ for flat regions.
+
+Since the introduction of the first feature detection algorithms like the Harris detector, many other methods have emerged with increased robustness and computational efficiency. Performance is especially important for technologies such as AR, which requires real-time video processing. The Features from Accelerated Segment Test (FAST) corner detector is among some of the more computationally efficient algorithms often used in processing real-time camera feed. FAST detects corners by performing a segment test. The test determines if a specific pixel is an interest point by examining the pixels surrounding it. A pixel is deemed a corner if there are more than $n$ (commonly $n = 12$) contiguous pixels surrounding it that are brighter or darker than the pixel considered. In Figure~\ref{fast}, a pixel is chosen for the segment test, labeled $p$. A Bresenham circle of 16 pixels is drawn around $p$ using the midpoint circle algorithm. The intensity values of the pixels on the circle are tested against $p$'s intensity. First compare $p$ to pixels 1, 5, 9, 13.  If at least three of these four intensity values are all greater or all less than $p$'s value, continue to examine the remaining pixels. If there is a strip of 12 continuous pixels that satisfy the criteria (all brighter or all darker), $p$ is a corner pixel. (cite Deepanshu Tyagi).
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{fast}{.85}
+\vspace{-.2 in}
+\caption{FAST's segment test. Source: Deepanshu Tyagi}\label{fast}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\begin{lstlisting}[mathescape, caption= Check for corner at pixel with given Bresenham circle, label=detect]
+def detect(image: list, threshold: float) -> list:
+    corners = []
+    rows = len(image)
+    cols = len(image[0])
+    for x in range(4, rows - 4):
+        for y in range(4, cols - 4):
+            i_max = image[x][y] + threshold
+            i_min = image[x][y] - threshold
+            circle = []
+            # Fill the list circle with the intensity values of the pixels
+            # chosen by the Bresenham circle algorithm
+            feature = is_corner(circle, i_max, i_min)
+            if feature:
+                corners.append((x, y))
+    return corners
+\end{lstlisting}
+
+See the pseudocode in Listing~\ref{detect} for an implementation of the segment test. Function \texttt{detect} takes an image $image$ and a threshold value $threshold$ as its parameters. The threshold value determines how much its intensity needs to vary in order for the pixel to be considered brighter or darker than the other. For example, let the intensity value of pixel $p$ be $I_p$. For pixel $p'$ to be brighter than $p$, $I_{p'}$ is greater than $I_p + threshold$. The data type of \texttt{image} is not an actual representation of the image, but a two-dimensional matrix containing the intensity values of all the pixels in the image. For example, for an image of size $2000 \times 1000$ pixels, the argument passed to parameter \texttt{image} is a $2000 \times 1000$ matrix. In the pseudocode, image is represented by a list. \texttt{image[x][y]} accesses the intensity of the pixel at row $x$ and column $y$.
+
+First the algorithm starts at pixel $(4,4)$ and loops through every single pixel in the image. Pixels on the first and last four rows and columns are excluded because a Bresenham circle cannot be drawn for these border pixels. For each pixel, the maximum and minimum intensity thresholds are calculated. Then a circle is draw around the current pixel using the Bresenham's circle drawing algorithm (refer to Figure~\ref{fast} for an example of the circle). Line 10 and 11 in Listing~\ref{detect} assumes that the Bresenham circle has been drawn and the intensity values of the chosen pixels are appended to the list \texttt{circle}. Then the algorithm calls the \texttt{is\_corner} function (Listing~\ref{iscorner}) to check if the pixel is a corner or not. If the pixel is a corner, append its indices $(x, y)$ as a tuple to the list \texttt{corners}. This list stores the indices of all the corners, or interest points, in the image and is returned at the end.
+
+The segment test described in \texttt{detect} calls \texttt{is\_corner} (pseudocode in Listing~\ref{iscorner}) to determine whether a pixel is a corner or not. \texttt{is\_corner} takes the list of the intensity values of 16 pixels in the Bresenham circle as its parameter.  The maximum and minimum threshold values \texttt{i\_max} and \texttt{i\_min} are also passed to the function. Recall from Figure~\ref{fast} that initially only pixels with indices 1, 5, 9, 13 are examined. The counters \texttt{brighter} and \texttt{darker} keep track of how many of these four pixels are brighter or darker than the thresholds. If there are more than three that all hold the same criterion (all brighter or darker) then check if there is at least 12 continuous pixels on the circle that also holds this criterion. This process is done by keeping a counter and incrementing it every time the pixel passes the check. The counter is reset to 0 if the test fails. Return \texttt{True} if the counter reaches 12. Because a circle has no beginning or end, there might be a contingency of pixels that pass the test at the start of the loop and some more at the end of the loop. These also count as one continuous strip. For instance, pixels 1 through 5 and 10 through 16 are all brighter. However, between 5 and 10, the counter might have been reset. To account for the continuity of the first pixels examined and the last ones, some extra variables are used to store this information. Boolean variable \texttt{is\_first} is \texttt{True} only when the loop iterates through the first continuous strip found. \texttt{first\_strip} records the number of continuous pixels that pass the test at the beginning, which gets added to the counter at the end of the loop to get the length of this entire strip.
+
+\begin{lstlisting}[mathescape, caption= Check for corner at pixel with given Bresenham circle, label=iscorner]
+def is_corner(circle: list, i_max: float, i_min: float) -> bool:
+    brighter = 0 # counter of brighter pixels
+    darker = 0 # counter of darker pixels
+    for i in range(4):
+        if circle[i * 4] > i_max:
+            brighter += 1
+        if circle[i * 4] < i_min:
+            darker -= 1
+    results = False
+    counter = 0
+    first_strip = 0
+    is_first = True
+    if brighter >= 3:
+        for i in range(16):    
+            # Replace with circle[i] < min for testing darker intensities
+            if circle[i] > i_max: 
+                counter += 1
+                if counter == 12:
+                    return True
+            else:
+                if is_first:
+                    is_first = False
+                    first_strip = counter
+                counter = 0
+        if counter + first_strip >= 12:
+            return True
+    if darker >= 3:
+        '''
+        Repeat the previous loop. 
+        Replace the condition with circle[i] < min.
+        '''
+    return False
+\end{lstlisting}
+
+There are some limitations to this method. The order in which the pixels are examined affects the performance of the algorithm. A machine learning approach seeks to optimize this drawback using decision trees. First, the 16 pixels in around the pixel in question is divided into three subsets: darker, similar or brighter, represented by $P_d$, $P_s$, and $P_d$ respectively. Let $x$ be a pixel in the 16 from the Bresenham circle and $p$ the center pixel. We have
+\begin{equation}
+x \in \begin{cases}
+	P_d, & \text{if $I_x \leq I_p - threshold$} \\
+	P_s, & \text{if $I_p - threshold < I_x < I_p + threshold$} \\
+	P_b, & \text{if $I_x \geq I_p + threshold$}
+	\end{cases}
+\end{equation}
+where $I_x$ is the intensity of $x$ and $I_p$ is the intensity of $p$. To create the decision tree, the classifier algorithm is recursively applied to each subset to the pixel $x$ that provides the most information about whether the center pixel $p$ is a corner. This decision tree determines the sequence of pixels to examine in order to achieve faster detection. (cite opencv)
+
+Another constraint with FAST is that it can end up detecting multiple corners for the same edges. Better strands of FAST use the non-maximum suppression technique to remove unwanted noise around corners. To achieve this, for each detected corner, a score $V$ is calculated by finding the sum of absolute difference between the intensity of the corner pixel and the other 16 in the Bresenham circle. When two adjacent corners are found, whichever has the higher $V$ is chosen as the corner.
+
+\section{AR Development Platforms}
+Development platforms for AR have been expanding with the evolution of detection algorithms in computer vision and computer graphics. Currently, the main AR software development platforms are ARCore, ARKit, and Vuforia. All of these platforms provide support for the Unity game engine.
+
+\subsection{ARCore} 
+ARCore is a platform by Google for AR mobile development. ARCore provides three main functionalities: motion tracking, environmental understanding, and light estimation (ARCore). Tracking is also done using the same principles as SLAM, by identifying point clusters and using inertial sensors to estimate the camera’s pose. A point cluster is a set of oriented interest points. Each interest point returns a directional vector that can be used for designing interactions between virtual and physical content (cite Unite Berlin). The construction of point clusters can be used to define planar surfaces and deducing their angles  (ARCore). Figure~\ref{point} demonstrates a net of point cluster found from a table surface; virtual Andy Androids are placed on this surface. ARCore provides multiplayer experiences by using Cloud Anchors, which sync selected anchors to Google Cloud, making them accessible to other devices. This function allows multiple users to view the same AR scene simultaneously. ARCore also supports instant preview of real-time modifications on apps that are currently running on Android device(s).
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{pointcloud.png}{0.3}
+\vspace{-.2 in}
+\caption[ARCore point cluster]{The point cluster is used in this ARCore app to track a table surface. From: Google}\label{pointcloud}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\subsection{ARKit}
+ARKit is Apple's AR development platform for iOS devices. ARKit 3 introduces people and object occlusion, enabled by motion capture and facial tracking. A child framework, RealityKit, allows for better simulation and rendering with additional functionality that includes audio AR, animation, real-time response to user input, and cross-device multiplayer experiences (ARKit). ARKit comes with a companion app (Reality Composer) with a drag-and-drop interface for AR prototyping and development.
+
+\subsection{Vuforia}
+Vuforia is a software development kit for AR mobile devices. Acquired by PTC from Qualcomm in 2015, Vuforia is one of the most widely used platforms for AR development (cite ptc). Vuforia provides cross-platform support for Android, iOS, and UWP (full word), as well as the Unity game engine. Apps developed with Vuforia can be deployed on various phones, tablets, and other eyewear devices such as the HoloLens and Vuzix M300/M400. Vuforia's main feature is its ability to track an array of targets, including models, images, objects, and a hybrid of these targets. The latest release includes support for tracking horizontal planes.
+
+\subsection{Unity}
+Unity is a real-time development platform by Unity Technologies. As a game engine, Unity provides support for a range of platforms, including major native platforms such as Android, iOS, Windows, as well as for all the aforementioned AR platforms. The Unity environment includes both drag-and-drop functionality and a scripting API in C\#. Unity can be used to create 2D and 3D games in addition to VR/AR and other simulation experiences. With its evolving graphics features and usability, Unity has grown to become the most popular game engine and platform for AR and VR content.
+
+AR Foundation is the multi-platform support package for AR by Unity. AR Foundation provides a common abstract API that combines the core functionality of ARCore and ARKit. The package provides a collection of Unity scripts that enables high-level functionalities such as surface detection, point clouds, reference points, light estimation, and world tracking.
+
+\section{Augmented Reality \& Digital Humanities}\label{dighuman}
+In recent years, computer vision technologies such as virtual reality and augmented reality have found more uses in everyday life. Developments in fundamental AR components such as feature detection and in supporting development frameworks such as Vuforia help improve the technology's accessibility and potential in various fields. New advances are letting humans see in ways that were previously unthinkable. X-Ray machines can see where the unaided eye cannot, through multiple layers, even into the human body. Facial recognition algorithms have gained massive traction both as a significant technological accomplishment and a security invasion. Ethical applications of these powerful and sometimes invasive technology require careful considerations over their implications. For augmented reality, who is allowed to see and who is being seen become questions of great consequence for designers and users of this technology.
+
+On the other hand, technological progress implies tremendous novel potentials. For history and other humanities disciplines and social sciences, these advances provide more methods for research and new perspectives, with the focus on data and better analysis techniques. In fact, a new discipline has come about to describe the intersection between technology and these other fields, called digital humanities. Digital humanities is concerned with the use of computational tools to produce new methods for finding patterns, visualization, and analysis.\footnote{\url{http://www.michaeljkramer.net/what-does-digital-humanities-bring-to-the-table/}}. However, as far as the limitations of technology are concerned, digital humanities is also self-critical as a discipline; alongside utilizing technological affordances, scholars also challenge the pitfalls that might come with culturally constructed assumptions behind these designs or with privileges that discriminate against non-users of these technologies \footnote{cite 6-7 Critical digital humanities}.
+
+In history, AR and VR are most commonly found in public history institutions, especially with museums, archives, and libraries. The obsession with seeing is now extended to the past through historical photographs, texts, and now virtual reconstructions enabled by AR/VR platforms. But the possibilities are much broader than just for the public audience. Techniques such as optical character recognition allow for the processing of hundreds of thousands of sources simultaneously, multiplying the scope of research \footnote{cite Chapter 5,7 seeing the past}. By manipulating spaces, AR brings history outside the texts and into the world, transcending physical barriers by employing them as platforms for virtual media. Location-based immersive experiences such as Museum of the Hidden City by Walking Cinema make history accessible in the space where it happened
+This project is concerned with a smaller-scale use case of augmented reality, digital storytelling. The app presents a multimodal narrative for a walking tour around the Fillmore neighborhood of San Francisco, where the forces of gentrification uprooted marginalized populations through affordable housing \footnote{cite hidden city}. Figure~\ref{fillmore} is taken directly from the app and shows an illustration of historical Fillmore superimposed on an image of today's Fillmore from the camera feed. Multimodality introduces new ways of presenting different perspectives, and in the Fillmore examples, through oral histories, historic images, and physical primary sources (in the form of the real buildings themselves).
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{fillmore.png}{0.3}
+\vspace{-.2 in}
+\caption[Museum of the Hidden City]{A screenshot of the immersive AR experience exploring the history of housing in Fillmore, San Francisco. From: Walking Cinema}\label{fillmore}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+\begin{figure}[!ht]
+\rightline{
+\begin{minipage}{\textwidth}
+\begin{center}
+\woopic{englandoriginals}{0.15}
+\vspace{-.2 in}
+\caption[England Originals]{A table-top AR application for mobile phones about the history of England. Image taken by author}\label{england_originals}
+\end{center}
+\end{minipage}
+}
+\end{figure}
+
+This project also makes use of digital storytelling through AR to present an analysis of Ho Chi Minh City's history and its memory. Instead of using the location-based method, the app is designed for table tops and vertical planes. This mode is not uncommon for AR experiences. The England Originals app (Figure~\ref{england_originals}) is a relatively successful example of such model. Users can place the virtual map of English cities on horizontal planes and click on individual buildings for further context. This project's supplemental mobile app employs the same principles with plane detection and tracking to provide a localized spatial experience, while using technical concepts such as feature detection and platforms like Vuforia and Unity. As is the case with technology, the process of researching and designing for this project takes into considerations questions about the implications of using these computational tools. As the analysis delves into politics and power, it is important that any product from this project also makes transparent the underpinnings of the power and politics of such technology.
+
+%to do: add concluding paragraph. Maybe start with a different intro and move digital humanities down here.
